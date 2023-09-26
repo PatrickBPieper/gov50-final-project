@@ -1,14 +1,14 @@
 ---
-title: "Gov 50 Final Project"
-author: "Your Name Here"
-description: "My final project"
+title:  "Gov 50 Final Project"
+author: "Patrick Pieper"
+description: "An analysis of the effects of the number of classes taken a semester on grades. I intend to use the data of Harvard students and plot the number of classes taken against their grades. This can be done for semesters individually as well as overall, allowing us to observe the difference in grades at the time of graduation. I plan on having the number of classes as independent variable and grades as dependent variable. 
+Alternative: plot several categories as opposed to number of classes a semester alone - for example morning vs afternoon classes; number of days on which students have classes a week; size of classes; hours spent in class a week; etc."
 output:
   distill::distill_article:
     self_contained: false
 ---
 
 
-
 ## Project thoughts
 
-I am interested in exploring data related to...
+I am interested in exploring data related to the grades of Harvard students, depending on the attributes of their choice in classes.
