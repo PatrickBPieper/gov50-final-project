@@ -1,8 +1,7 @@
 ---
 title:  "Gov 50 Final Project"
 author: "Patrick Pieper"
-description: "An analysis of the effects of the number of classes taken a semester on grades. I intend to use the data of Harvard students and plot the number of classes taken against their grades. This can be done for semesters individually as well as overall, allowing us to observe the difference in grades at the time of graduation. I plan on having the number of classes as independent variable and grades as dependent variable. 
-Alternative: plot several categories as opposed to number of classes a semester alone - for example morning vs afternoon classes; number of days on which students have classes a week; size of classes; hours spent in class a week; etc."
+description: An investigation into the academic performance of Harvard Students based on set variables. This paper will use GPA/grades of students and plot them against data from their student profile. Depending on the availability of the data, factors examined will include, ethnicity, nationality, intended concentration, number of courses a semester, gender, age, private or public high school etc. In analysing the data, the data will be plotted in order to determine trends and an attempt will be made at deducing the expected academic success of a student based on their profile. 
 output:
   distill::distill_article:
     self_contained: false
@@ -11,4 +10,15 @@ output:
 
 ## Project thoughts
 
-I am interested in exploring data related to the grades of Harvard students, depending on the attributes of their choice in classes.
+I was initially interested in exploring data related to the grades of Harvard students, depending on the attributes of their choice in classes. Thinking about trends in well-performing students, I decided to broaden my set of variables - thinking of nationality, ethnicity, concentration etc. - which would be interesting to analyze and compare. Ultimately, I would like to discern whether it is possible to guess a student's academic performance based on a set of determined variables - or at least compare trends.
+
+
+## Data Sources
+
+I've reached out to the Office of Institutional Research as well as the Registrar to discuss the possibility of obtaining data from student records. I will also discuss which sets of data from students they record, and will adjust my strategy slightly depending on the availability.
+
+## 
+Can the academic success of a student at Harvard be foretold? Are certain student-profiles likelier to do well than others? In this study I plan to examine the profiles of students at Harvard and plot these against their grades/GPA. In doing so, I hope to classify students into groups based on their academic performance and profile, in order to find correlation. A large set of variables will be observed at first - including but not limited to: ethnicity, nationality, intended concentration, number of courses a semester, gender, age, private or public high school, athletic affiliation, extracurricular affiliation etc. - but depending on the correlation to grades and on the availability of their data some may be omitted. After determining which categorizations have the largest spread/most significant impact, I will attempt to combine the variables and form groups that contrast, in order to predict whether a student has good grades or not. The data will (hopefully) be obtained by a Harvard affiliated data bank, notably the Registrar or the Office of Institutional Research. 
+
+
+
