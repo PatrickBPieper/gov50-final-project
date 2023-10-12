@@ -17,7 +17,7 @@ I was initially interested in exploring data related to the grades of Harvard st
 
 I've reached out to the Office of Institutional Research as well as the Registrar to discuss the possibility of obtaining data from student records. I will also discuss which sets of data from students they record, and will adjust my strategy slightly depending on the availability.
 
-## 
+## Proposal
 Can the academic success of a student at Harvard be foretold? Are certain student-profiles likelier to do well than others? In this study I plan to examine the profiles of students at Harvard and plot these against their grades/GPA. In doing so, I hope to classify students into groups based on their academic performance and profile, in order to find correlation. A large set of variables will be observed at first - including but not limited to: ethnicity, nationality, intended concentration, number of courses a semester, gender, age, private or public high school, athletic affiliation, extracurricular affiliation etc. - but depending on the correlation to grades and on the availability of their data some may be omitted. After determining which categorizations have the largest spread/most significant impact, I will attempt to combine the variables and form groups that contrast, in order to predict whether a student has good grades or not. The data will (hopefully) be obtained by a Harvard affiliated data bank, notably the Registrar or the Office of Institutional Research. 
 
 
