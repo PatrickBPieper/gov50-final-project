@@ -22,3 +22,127 @@ Can the academic success of a student at Harvard be foretold? Are certain studen
 
 
 
+```{r}
+install.packages("tsibble")
+library(tsibble)
+```
+
+```{r}
+library(tsibble)
+   data(package - "tsibble")
+```
+
+
+```{r}
+install.packages("jsonlite", repos="https://cran.rstudio.com/")
+library("jsonlite")
+
+json_file <- 'https://datahub.io/core/co2-fossil-by-nation/datapackage.json'
+json_data <- fromJSON(paste(readLines(json_file), collapse=""))
+
+# get list of all resources:
+print(json_data$resources$name)
+
+# print all tabular data(if exists any)
+for(i in 1:length(json_data$resources$datahub$type)){
+  if(json_data$resources$datahub$type[i]=='derived/csv'){
+    path_to_file = json_data$resources$path[i]
+    data <- read.csv(url(path_to_file))
+    print(data)
+  }
+}
+```
+
+```{r}
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+data
+```
+```{r}
+unique_countries <- data |>
+  distinct(Country)
+  unique_countries
+```
+
+#total emissions for each country across all years
+
+```{r}
+total_emissions <- data |>
+  group_by(Country) |>
+  summarise(total_emissions = sum(Total, na.rm = TRUE)) |>
+  arrange(desc(total_emissions))
+total_emissions
+```
+
+
+
+#table with total emissions by country
+
+```{r}
+total_emissions |>
+ggplot(aes(x = reorder(Country, -total_emissions), y = total_emissions)) +
+  geom_col() +
+  geom_hline(yintercept = average_emissions) +
+  labs(
+    x="Country",
+    y="Total Emissions",
+    title="Total Emissions by Country"
+  )
+```
+
+
+#filtered data and averages
+
+```{r}
+top10_emissions <- total_emissions |>
+  arrange(-total_emissions) |>
+  slice(c(1:10))
+        top10_emissions
+        
+average_emissions_top10 <- mean(top10_emissions$total_emissions)
+average_emissions_top10
+average_emissions_total <- mean(total_emissions$total_emissions)
+average_emissions_total
+```
+
+
+#Bar Chart 
+
+```{r}
+top10_emissions |>
+  ggplot(aes(x = reorder(Country, -total_emissions), y = total_emissions)) +
+  geom_bar(stat = "identity") +
+  geom_hline(aes(yintercept = average_emissions_total, linetype = "Average for All Countries", color="indianred")) +
+  geom_hline(aes(yintercept = average_emissions_top10, linetype = "Average for Top 10 Countries", color="dodgerblue")) +
+  labs(x="Country", y="Total Emissions", title="Top 10 Total Emissions by Country") +
+  scale_linetype_manual(values=c("Average for All Countries" = "dashed", "Average for Top 10 Countries" = "dotted"), name="Average Line") +
+  guides(color = FALSE) + #Remove color legend
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=6))
+  
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
