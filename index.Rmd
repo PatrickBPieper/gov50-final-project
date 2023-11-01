@@ -1,7 +1,7 @@
 ---
 title:  "Gov 50 Final Project"
 author: "Patrick Pieper"
-description: An investigation into the academic performance of Harvard Students based on set variables. This paper will use GPA/grades of students and plot them against data from their student profile. Depending on the availability of the data, factors examined will include, ethnicity, nationality, intended concentration, number of courses a semester, gender, age, private or public high school etc. In analysing the data, the data will be plotted in order to determine trends and an attempt will be made at deducing the expected academic success of a student based on their profile. 
+description: This project investigates the carbon emissions data across various countries since '1751', focusing on identifying and visualizing the differences in emissions. The objective is to pinpoint the highest emitters, compare emissions amongst countries, and highlight the gap between them. 
 output:
   distill::distill_article:
     self_contained: false
@@ -10,27 +10,21 @@ output:
 
 ## Project thoughts
 
-I was initially interested in exploring data related to the grades of Harvard students, depending on the attributes of their choice in classes. Thinking about trends in well-performing students, I decided to broaden my set of variables - thinking of nationality, ethnicity, concentration etc. - which would be interesting to analyze and compare. Ultimately, I would like to discern whether it is possible to guess a student's academic performance based on a set of determined variables - or at least compare trends.
+I was initially interested in the varying levels of carbon emissions across time. However, when reading the data, I was more intrigued by the difference in countries, as opposed to the difference over time. This led me to a broader investigation aiming to visualize and understand the emissions data better. In doing so, i hope to discover significant insights regarding the emissions spectrum - where countries stand and the gaps that exist between them.
 
 
 ## Data Sources
 
-I've reached out to the Office of Institutional Research as well as the Registrar to discuss the possibility of obtaining data from student records. I will also discuss which sets of data from students they record, and will adjust my strategy slightly depending on the availability.
+The primary data source for this project is the CO2 emissions data set retrieved from Datahub, within the scope of a project by the Carbon Dioxide Information Analysis Center (CDIAC). This data set contains historical emissions data - recorded yearly across countries - which allows for a comprehensive analysis observing time and country. The data was accessed using R and relevant packages, such as 'jasonlite'.
+
 
 ## Proposal
-Can the academic success of a student at Harvard be foretold? Are certain student-profiles likelier to do well than others? In this study I plan to examine the profiles of students at Harvard and plot these against their grades/GPA. In doing so, I hope to classify students into groups based on their academic performance and profile, in order to find correlation. A large set of variables will be observed at first - including but not limited to: ethnicity, nationality, intended concentration, number of courses a semester, gender, age, private or public high school, athletic affiliation, extracurricular affiliation etc. - but depending on the correlation to grades and on the availability of their data some may be omitted. After determining which categorizations have the largest spread/most significant impact, I will attempt to combine the variables and form groups that contrast, in order to predict whether a student has good grades or not. The data will (hopefully) be obtained by a Harvard affiliated data bank, notably the Registrar or the Office of Institutional Research. 
+The goal is to analyze and visualize the carbon emissions data to draw meaningful comparisons between countries, particularly focusing on the top 10 emitters. The analysis will highlight the emissions difference between adjacent countries on the list, providing a visual representation of the emissions gap. This analysis would open the door for a deeper investigation into the policies and factors contributing to the emissions levels in these countries - potentially also allowing for comparison with related metrics, such as GDP. 
+
+Based on the global emissions data, I anticipate that the key emitters will be predominantly industrialized countries, many of which will be categorized as 'Western'. In addition, BRICS countries should also be up on the list. I also expect the difference in emissions to be more significant the higher a country's emissions are.
 
 
 
-```{r}
-install.packages("tsibble")
-library(tsibble)
-```
-
-```{r}
-library(tsibble)
-   data(package - "tsibble")
-```
 
 
 ```{r}
@@ -123,7 +117,7 @@ top10_emissions |>
 ```
 
 
-
+#emission difference
 
 
 
