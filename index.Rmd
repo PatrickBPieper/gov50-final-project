@@ -42,7 +42,6 @@ for(i in 1:length(json_data$resources$datahub$type)){
   if(json_data$resources$datahub$type[i]=='derived/csv'){
     path_to_file = json_data$resources$path[i]
     data <- read.csv(url(path_to_file))
-    print(data)
   }
 }
 ```
@@ -51,7 +50,6 @@ for(i in 1:length(json_data$resources$datahub$type)){
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-data
 ```
 ```{r}
 unique_countries <- data |>
@@ -74,6 +72,8 @@ total_emissions
 #table with total emissions by country
 
 ```{r}
+average_emissions <- mean(total_emissions$total_emissions, na.rm=TRUE)
+
 total_emissions |>
 ggplot(aes(x = reorder(Country, -total_emissions), y = total_emissions)) +
   geom_col() +
