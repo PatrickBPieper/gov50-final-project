@@ -42,16 +42,12 @@ for(i in 1:length(json_data$resources$datahub$type)){
   if(json_data$resources$datahub$type[i]=='derived/csv'){
     path_to_file = json_data$resources$path[i]
     data <- read.csv(url(path_to_file))
-  }
+    }
 }
 ```
 
-```{r}
-data
-```
 
-
-```{r}
+```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
@@ -61,6 +57,12 @@ unique_countries <- data |>
   distinct(Country)
   unique_countries
 ```
+
+```{r}
+head(data, 10)
+```
+
+SHOWCASE HOW DATA PRESENTED
 
 #total emissions for each country across all years
 
@@ -72,6 +74,11 @@ total_emissions <- data |>
 total_emissions
 ```
 
+```{r}
+year_emissions <- data |>
+  group_by(Year)
+  summarize
+```
 
 
 #table with total emissions by country
@@ -121,11 +128,14 @@ top10_emissions |>
   
 ```
 
+The graph showcases the vast difference in emissions among the top 10 countries.The United States - in total over the last ~280 years - has produced more than twice as many emissions than China, in 2nd place. The significant disparity in emissions among these large-scale emitters and the descending trend in emissions values for subsequent countries seems to confirm my assumption that there exists a positive correlation between the amount of emissions and the difference in emissions to a lower country. This trend would indicate that countries producing little emissions have similar data to their neighbors - referring to an arranged order according to emissions.
+
+Comparing the average emissions of these top 10 players to the global average can offer insight into the overall contribution of these 10 to global emissions as well. Using these two approaches, one may substantiate claims that despite being a small number of countries, top emitters are responsible for a disproportionate amount of global emissions - this being more true the closer a country is to the "highest emitter position".
 
 #emission difference
 
 
-
+NOTES: If available, I will compare the emissions data to GDP growth - specifically looking at top emitters.
 
 
 
