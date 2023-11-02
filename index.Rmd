@@ -47,6 +47,11 @@ for(i in 1:length(json_data$resources$datahub$type)){
 ```
 
 ```{r}
+data
+```
+
+
+```{r}
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
