@@ -55,7 +55,7 @@ library(ggplot2)
 ```{r}
 unique_countries <- data |>
   distinct(Country)
-  unique_countries
+ 
 ```
 
 ```{r}
@@ -71,13 +71,7 @@ total_emissions <- data |>
   group_by(Country) |>
   summarise(total_emissions = sum(Total, na.rm = TRUE)) |>
   arrange(desc(total_emissions))
-total_emissions
-```
 
-```{r}
-year_emissions <- data |>
-  group_by(Year)
-  summarize
 ```
 
 
@@ -125,7 +119,6 @@ top10_emissions |>
   scale_linetype_manual(values=c("Average for All Countries" = "dashed", "Average for Top 10 Countries" = "dotted"), name="Average Line") +
   guides(color = FALSE) + #Remove color legend
   theme(axis.text.x = element_text(angle=45, hjust=1, size=6))
-  
 ```
 
 The graph showcases the vast difference in emissions among the top 10 countries.The United States - in total over the last ~280 years - has produced more than twice as many emissions than China, in 2nd place. The significant disparity in emissions among these large-scale emitters and the descending trend in emissions values for subsequent countries seems to confirm my assumption that there exists a positive correlation between the amount of emissions and the difference in emissions to a lower country. This trend would indicate that countries producing little emissions have similar data to their neighbors - referring to an arranged order according to emissions.
@@ -138,11 +131,136 @@ Comparing the average emissions of these top 10 players to the global average ca
 NOTES: If available, I will compare the emissions data to GDP growth - specifically looking at top emitters.
 
 
+#GDP
+
+```{r}
+df<-read.csv("DP_LIVE_16112023222414417.csv")
+
+```
+
+```{r}
+unique_location <- df |>
+  distinct(LOCATION)
+```
+
+#total GDP
+
+```{r}
+total_gdp <- df |>
+  group_by(LOCATION) |>
+  summarise(total_gdp = sum(Value, na.rm = TRUE)) |>
+  arrange(desc(total_gdp))
+
+```
 
 
+#table with total GDP by country
+
+```{r}
+average_gdp <- mean(total_gdp$total_gdp, na.rm=TRUE)
+
+total_gdp |>
+ggplot(aes(x = reorder(LOCATION, -total_gdp), y = total_gdp)) +
+  geom_col() +
+  geom_hline(yintercept = average_gdp) +
+  labs(
+    x="Country",
+    y="Total GDP",
+    title="Total GDP by Country"
+  )
+```
+
+#same 10 countries total gdp
+
+```{r}
+top_10_emissions_gdp <- total_gdp |>
+  filter(LOCATION %in% c("USA", "CHN", "RUS", "GBR", "JPN", "DEU", "IND", "FRA", "CAN"))
+top_10_emissions_gdp
+
+average_gdp_top_10_emissions_gdp <- mean(top_10_emissions_gdp$total_gdp)
+average_gdp_top_10_emissions_gdp
+average_gdp_total <- mean(total_gdp$total_gdp)
+average_gdp_total
+```
+
+```{r}
+top_10_emissions_gdp |>
+  ggplot(aes(x = reorder(LOCATION, -total_gdp), y = total_gdp)) +
+  geom_bar(stat = "identity") +
+  geom_hline(aes(yintercept = average_gdp_total, linetype = "Average for All Countries", color="indianred")) +
+  geom_hline(aes(yintercept = average_gdp_top_10_emissions_gdp, linetype = "Average for Top 10 Countries", color="dodgerblue")) +
+  labs(x="Country", y="Total GDP", title="Top 10 Total Emission Countries GDP by Country") +
+  scale_linetype_manual(values=c("Average for All Countries" = "dashed", "Average for Top 10 Countries" = "dotted"), name="Average Line") +
+  guides(color = FALSE) + #Remove color legend
+  theme(axis.text.x = element_text(angle=45, hjust=1, size=6))
+```
+
+#1992-2014 total gdp and total emissions (solve USSR problem and data only available until 2014)
+
+#filter emissions, aggregate data, identify top 9
+
+```{r}
+emissions_filtered <- data |>
+  filter(Year >= 1992, Year <= 2014)
 
 
+total_emissions_1992_2014 <- emissions_filtered |>
+  group_by(Country) |>
+  summarise(total_emissions = sum(Total, na.rm = TRUE)) |>
+  arrange(desc(total_emissions))
 
+
+top9_emitters <- head(total_emissions_1992_2014, 9)
+top9_emitters
+```
+
+#filter and aggregate GDP
+```{r}
+unique_countries_gdp <- df |>
+  distinct(LOCATION) |>
+  arrange(LOCATION)
+```
+
+
+```{r}
+gdp_filtered <- df |>
+  filter(TIME >= 1992, TIME <= 2014, LOCATION %in% c("CHN", "USA", "RUS", "IND", "JPN", "DEU", "GBR", "CAN", "KOR"))
+
+
+total_gdp_1992_2014 <- gdp_filtered |>
+  group_by(LOCATION) |>
+  summarise(total_gdp = sum(Value, na.rm = TRUE)) |>
+  arrange(- total_gdp)
+
+```
+
+# Merged Data
+
+```{r}
+emissions_gdp_data <- data.frame(
+  Country = c("China", "USA", "Russia", "India", "Japan", "Germany", "UK", "Canada", "Korea"),
+  Total_Emissions = c(35489190, 33931362, 10466421, 7964623, 7524624, 5096108, 3249675, 3242871, 2890885),
+  Total_GDP = c(161277918, 271880877, 41382019, 75717911, 88956166, 60368485, 42279981, 25127316, 25760099)
+)
+emissions_gdp_data
+```
+
+#linear regression analysis
+
+```{r}
+model <- lm(Total_GDP ~ Total_Emissions, data = emissions_gdp_data)
+summary(model)
+```
+
+```{r}
+emissions_gdp_data |>
+  ggplot(aes(x = Total_Emissions, y = Total_GDP)) +
+  geom_point() +
+  geom_smooth(method = "lm") +
+  labs(title = "Relationship between Total Emissions and Total GDP", x = "Total Emissions in metric tons)", y = "Total GDP (in USD)")
+```
+
+The positive slope of the regression line indicates a positive correlation between Total Emissions and Total GDP for the top 9 countries by emissions. This confirms my assumption that countries producing greater volumes of emissions have a higher GDP growth than countries with lower emissions. The confidence interval - represented by the shaded line - appears to be narrow enough/confirm the indications of the regression line, although this must be confirmed with statistical reasoning, such as the p-value and R-squared value.
 
 
 

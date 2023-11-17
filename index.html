@@ -115,7 +115,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv","Final Project Repository Creation/Final Project Repository Creation.Rproj","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv","Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv"]}
+  {"type":"character","attributes":{},"value":["API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv","DP_LIVE_16112023222414417.csv","Final Project Repository Creation/Final Project Repository Creation.Rproj","index_files/anchor-4.2.2/anchor.min.js","index_files/bowser-1.9.3/bowser.min.js","index_files/distill-2.2.21/template.v2.js","index_files/figure-html5/unnamed-chunk-12-1.png","index_files/figure-html5/unnamed-chunk-14-1.png","index_files/figure-html5/unnamed-chunk-20-1.png","index_files/figure-html5/unnamed-chunk-5-1.png","index_files/figure-html5/unnamed-chunk-6-1.png","index_files/figure-html5/unnamed-chunk-7-1.png","index_files/figure-html5/unnamed-chunk-8-1.png","index_files/figure-html5/unnamed-chunk-9-1.png","index_files/header-attrs-2.17/header-attrs.js","index_files/header-attrs-2.24/header-attrs.js","index_files/jquery-3.6.0/jquery-3.6.0.js","index_files/jquery-3.6.0/jquery-3.6.0.min.js","index_files/jquery-3.6.0/jquery-3.6.0.min.map","index_files/popper-2.6.0/popper.min.js","index_files/tippy-6.2.7/tippy-bundle.umd.min.js","index_files/tippy-6.2.7/tippy-light-border.css","index_files/tippy-6.2.7/tippy.css","index_files/tippy-6.2.7/tippy.umd.min.js","index_files/webcomponents-2.0.0/webcomponents.js","Merged Data 2.csv","Merged Data.csv","Metadata_Country_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv","Metadata_Indicator_API_NY.GDP.MKTP.CD_DS2_en_csv_v2_6011335.csv"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
   <!--/radix_placeholder_navigation_in_header-->
@@ -1531,7 +1531,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <pre><code>package &#39;jsonlite&#39; successfully unpacked and MD5 sums checked
 
 The downloaded binary packages are in
-    C:\Users\patri\AppData\Local\Temp\RtmpYDR4KE\downloaded_packages</code></pre>
+    C:\Users\patri\AppData\Local\Temp\RtmpApOrVv\downloaded_packages</code></pre>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='st'><a href='https://jeroen.r-universe.dev/jsonlite'>"jsonlite"</a></span><span class='op'>)</span></span>
 <span></span>
@@ -1567,266 +1567,8 @@ The downloaded binary packages are in
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unique_countries</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>Country</span><span class='op'>)</span></span>
-<span>  <span class='va'>unique_countries</span></span></code></pre>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>Country</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code>                                              Country
-1                                      UNITED KINGDOM
-2                                              CANADA
-3                                             GERMANY
-4                                              POLAND
-5                            UNITED STATES OF AMERICA
-6                                             BELGIUM
-7                           FRANCE (INCLUDING MONACO)
-8                                             AUSTRIA
-9                                              NORWAY
-10                                            HUNGARY
-11                                              SPAIN
-12                                               USSR
-13                                             SWEDEN
-14                                            DENMARK
-15                                        NETHERLANDS
-16                                            IRELAND
-17                                          AUSTRALIA
-18                                            ROMANIA
-19                                              INDIA
-20                                        SWITZERLAND
-21                                     CZECHOSLOVAKIA
-22                                            FINLAND
-23                       ITALY (INCLUDING SAN MARINO)
-24                                             TURKEY
-25                                             GREECE
-26               JAPAN (EXCLUDING THE RUYUKU ISLANDS)
-27                                           PORTUGAL
-28                                        NEW ZEALAND
-29                                           BULGARIA
-30     YUGOSLAVIA (FORMER SOCIALIST FEDERAL REPUBLIC)
-31                                               PERU
-32                                       SOUTH AFRICA
-33                                          ARGENTINA
-34                                          INDONESIA
-35                                PENINSULAR MALAYSIA
-36                                             MEXICO
-37                                           VIET NAM
-38                                              CHILE
-39                                             TAIWAN
-40                                   CHINA (MAINLAND)
-41                                            ALGERIA
-42                                             BRAZIL
-43                           ISLAMIC REPUBLIC OF IRAN
-44                                           ZIMBABWE
-45                                          VENEZUELA
-46                                       UNITED KOREA
-47                                        PHILIPPINES
-48                                TRINIDAD AND TOBAGO
-49                                              EGYPT
-50                                            NIGERIA
-51                                            TUNISIA
-52                                            ECUADOR
-53  DEMOCRATIC REPUBLIC OF THE CONGO (FORMERLY ZAIRE)
-54                                        PUERTO RICO
-55                                           COLOMBIA
-56                                               IRAQ
-57                                            SARAWAK
-58                      NETHERLAND ANTILLES AND ARUBA
-59                                         MOZAMBIQUE
-60                                           BARBADOS
-61                                            ESTONIA
-62                                  FRENCH INDO-CHINA
-63                                             LATVIA
-64                                            MOROCCO
-65                           MYANMAR (FORMERLY BURMA)
-66                     PLURINATIONAL STATE OF BOLIVIA
-67                                BRUNEI (DARUSSALAM)
-68                                             ISRAEL
-69                                            LEBANON
-70                               SYRIAN ARAB REPUBLIC
-71                                           THAILAND
-72                                            URUGUAY
-73                                            ALBANIA
-74                                            BAHRAIN
-75                                         MADAGASCAR
-76                                       SAUDI ARABIA
-77                                            ICELAND
-78    HONG KONG SPECIAL ADMINSTRATIVE REGION OF CHINA
-79                                            ERITREA
-80                                               CUBA
-81                                           ETHIOPIA
-82                                          GUATEMALA
-83                                          NICARAGUA
-84              DEMOCRATIC PEOPLE S REPUBLIC OF KOREA
-85                        FEDERAL REPUBLIC OF GERMANY
-86                  FORMER GERMAN DEMOCRATIC REPUBLIC
-87                                         LUXEMBOURG
-88                                  REPUBLIC OF KOREA
-89                               EAST &amp; WEST PAKISTAN
-90                                             KUWAIT
-91                                 DOMINICAN REPUBLIC
-92                                             PANAMA
-93                                        AFGHANISTAN
-94                                 FRENCH WEST AFRICA
-95                                              QATAR
-96                                             ANGOLA
-97                                            BAHAMAS
-98                                             BELIZE
-99                                            BERMUDA
-100                                        CAPE VERDE
-101                                        COSTA RICA
-102                                            CYPRUS
-103                                          DJIBOUTI
-104                                       EL SALVADOR
-105                                 EQUATORIAL GUINEA
-106                                    FAEROE ISLANDS
-107                       FALKLAND ISLANDS (MALVINAS)
-108                    FEDERATION OF MALAYA-SINGAPORE
-109                                              FIJI
-110                           FORMER DEMOCRATIC YEMEN
-111                          FORMER PANAMA CANAL ZONE
-112                                      FORMER YEMEN
-113                          FRENCH EQUATORIAL AFRICA
-114                                     FRENCH GUIANA
-115                                            GAMBIA
-116                                             GHANA
-117                                         GIBRALTAR
-118                                         GREENLAND
-119                                           GRENADA
-120                                        GUADELOUPE
-121                                     GUINEA BISSAU
-122                                            GUYANA
-123                                             HAITI
-124                                          HONDURAS
-125                                           JAMAICA
-126                                             JAPAN
-127                                            JORDAN
-128                                             KENYA
-129                                   LEEWARD ISLANDS
-130                                           LIBERIA
-131                           LIBYAN ARAB JAMAHIRIYAH
-132                                             MALTA
-133                                        MARTINIQUE
-134                                         MAURITIUS
-135                                          MONGOLIA
-136                                             NEPAL
-137                                     NEW CALEDONIA
-138                                  PAPUA NEW GUINEA
-139                                          PARAGUAY
-140                              REPUBLIC OF CAMEROON
-141                                           REUNION
-142                                RHODESIA-NYASALAND
-143                                     RWANDA-URUNDI
-144                                             SABAH
-145                                       SAINT LUCIA
-146                                             SAMOA
-147                                      SIERRA LEONE
-148                                           SOMALIA
-149                                         SRI LANKA
-150                             ST. PIERRE &amp; MIQUELON
-151                      ST. VINCENT &amp; THE GRENADINES
-152                                             SUDAN
-153                                          SURINAME
-154                                         SWAZILAND
-155                                        TANGANYIKA
-156                                              TOGO
-157                                             TONGA
-158                                            UGANDA
-159                                          ZANZIBAR
-160                                          DOMINICA
-161                               SAO TOME &amp; PRINCIPE
-162                                    RYUKYU ISLANDS
-163                                   SOLOMON ISLANDS
-164       MACAU SPECIAL ADMINSTRATIVE REGION OF CHINA
-165                                          CAMBODIA
-166                    DEMOCRATIC REPUBLIC OF VIETNAM
-167                                  FRENCH POLYNESIA
-168                  LAO PEOPLE S DEMOCRATIC REPUBLIC
-169                           PACIFIC ISLANDS (PALAU)
-170                         REPUBLIC OF SOUTH VIETNAM
-171                                    CAYMAN ISLANDS
-172                                 ANTIGUA &amp; BARBUDA
-173                                         SINGAPORE
-174                          ST. KITTS-NEVIS-ANGUILLA
-175                                             BENIN
-176                                      BURKINA FASO
-177                                     COTE D IVOIRE
-178                                            GUINEA
-179                                             NIGER
-180                                           SENEGAL
-181                          CENTRAL AFRICAN REPUBLIC
-182                                              CHAD
-183                                           COMOROS
-184                                             CONGO
-185                                             GABON
-186                                              MALI
-187                                        MAURITANIA
-188                              UNITED ARAB EMIRATES
-189                                          KIRIBATI
-190                            BRITISH VIRGIN ISLANDS
-191                                           BURUNDI
-192                                        MONTSERRAT
-193                                            RWANDA
-194                                           VANUATU
-195                                        SEYCHELLES
-196                                            MALAWI
-197                                             NAURU
-198                                              OMAN
-199                                            ZAMBIA
-200                                      SAINT HELENA
-201                                      COOK ISLANDS
-202                                            BHUTAN
-203                                  CHRISTMAS ISLAND
-204                                          MALAYSIA
-205                                              NIUE
-206                       UNITED REPUBLIC OF TANZANIA
-207                                          MALDIVES
-208                                        BANGLADESH
-209                                          BOTSWANA
-210                                          PAKISTAN
-211                                   ST. KITTS-NEVIS
-212                                             ARUBA
-213                               NETHERLAND ANTILLES
-214                               ANTARCTIC FISHERIES
-215                                           ANDORRA
-216                                          ANGUILLA
-217                                           LESOTHO
-218                    OCCUPIED PALESTINIAN TERRITORY
-219                          TURKS AND CAICOS ISLANDS
-220                                            TUVALU
-221                                 KUWAITI OIL FIRES
-222                                           NAMIBIA
-223                                             YEMEN
-224                                           ARMENIA
-225                                        AZERBAIJAN
-226                                           BELARUS
-227                              BOSNIA &amp; HERZEGOVINA
-228                                           CROATIA
-229                                    CZECH REPUBLIC
-230                    FEDERATED STATES OF MICRONESIA
-231                                           GEORGIA
-232                                        KAZAKHSTAN
-233                                        KYRGYZSTAN
-234                                         LITHUANIA
-235                                         MACEDONIA
-236                                  MARSHALL ISLANDS
-237                                             PALAU
-238                               REPUBLIC OF MOLDOVA
-239                                RUSSIAN FEDERATION
-240                                          SLOVAKIA
-241                                          SLOVENIA
-242                                        TAJIKISTAN
-243                                      TURKMENISTAN
-244                                           UKRAINE
-245                                        UZBEKISTAN
-246                  YUGOSLAVIA (MONTENEGRO &amp; SERBIA)
-247                         WALLIS AND FUTUNA ISLANDS
-248                 TIMOR-LESTE (FORMERLY EAST TIMOR)
-249                                        MONTENEGRO
-250                                            SERBIA
-251                                     LIECHTENSTEIN
-252                BONAIRE, SAINT EUSTATIUS, AND SABA
-253                                           CURACAO
-254                           REPUBLIC OF SOUTH SUDAN
-255                                 REPUBLIC OF SUDAN
-256                      SAINT MARTIN (DUTCH PORTION)</code></pre>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
@@ -1862,40 +1604,8 @@ The downloaded binary packages are in
 <pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>total_emissions</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Country</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
 <span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>total_emissions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Total</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>total_emissions</span><span class='op'>)</span><span class='op'>)</span></span>
-<span><span class='va'>total_emissions</span></span></code></pre>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>total_emissions</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<pre><code># A tibble: 256 × 2
-   Country                   total_emissions
-   &lt;chr&gt;                               &lt;int&gt;
- 1 UNITED STATES OF AMERICA        102510260
- 2 CHINA (MAINLAND)                 47649834
- 3 USSR                             30790355
- 4 UNITED KINGDOM                   20500813
- 5 JAPAN                            14585037
- 6 GERMANY                          12764185
- 7 INDIA                            11385351
- 8 RUSSIAN FEDERATION               10466421
- 9 FRANCE (INCLUDING MONACO)         9697149
-10 CANADA                            8038299
-# ℹ 246 more rows</code></pre>
-</div>
-<div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>year_emissions</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
-<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Year</span><span class='op'>)</span></span>
-<span>  <span class='va'>summarize</span></span></code></pre>
-</div>
-<pre><code>function (.data, ..., .by = NULL, .groups = NULL) 
-{
-    by &lt;- enquo(.by)
-    if (!quo_is_null(by) &amp;&amp; !is.null(.groups)) {
-        abort(&quot;Can&#39;t supply both `.by` and `.groups`.&quot;)
-    }
-    UseMethod(&quot;summarise&quot;)
-}
-&lt;bytecode: 0x0000021d2135ef78&gt;
-&lt;environment: namespace:dplyr&gt;</code></pre>
 </div>
 <p>#table with total emissions by country</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1912,7 +1622,7 @@ The downloaded binary packages are in
 <span>    title<span class='op'>=</span><span class='st'>"Total Emissions by Country"</span></span>
 <span>  <span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-7-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-6-1.png" width="624" /></p>
 </div>
 <p>#filtered data and averages</p>
 <div class="layout-chunk" data-layout="l-body">
@@ -1959,13 +1669,202 @@ The downloaded binary packages are in
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>#Remove color legend</span></span>
 <span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>angle<span class='op'>=</span><span class='fl'>45</span>, hjust<span class='op'>=</span><span class='fl'>1</span>, size<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
 </div>
-<p><img src="index_files/figure-html5/unnamed-chunk-9-1.png" width="624" /></p>
+<p><img src="index_files/figure-html5/unnamed-chunk-8-1.png" width="624" /></p>
 </div>
 <p>The graph showcases the vast difference in emissions among the top 10 countries.The United States - in total over the last ~280 years - has produced more than twice as many emissions than China, in 2nd place. The significant disparity in emissions among these large-scale emitters and the descending trend in emissions values for subsequent countries seems to confirm my assumption that there exists a positive correlation between the amount of emissions and the difference in emissions to a lower country. This trend would indicate that countries producing little emissions have similar data to their neighbors - referring to an arranged order according to emissions.</p>
 <p>Comparing the average emissions of these top 10 players to the global average can offer insight into the overall contribution of these 10 to global emissions as well. Using these two approaches, one may substantiate claims that despite being a small number of countries, top emitters are responsible for a disproportionate amount of global emissions - this being more true the closer a country is to the “highest emitter position”.</p>
 <p>#emission difference</p>
 <p>NOTES: If available, I will compare the emissions data to GDP growth - specifically looking at top emitters.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>#GDP</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>df</span><span class='op'>&lt;-</span><span class='fu'><a href='https://rdrr.io/r/utils/read.table.html'>read.csv</a></span><span class='op'>(</span><span class='st'>"DP_LIVE_16112023222414417.csv"</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unique_location</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>LOCATION</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>#total GDP</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>total_gdp</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>LOCATION</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>total_gdp <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Value</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>total_gdp</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<p>#table with total GDP by country</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>average_gdp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>total_gdp</span><span class='op'>$</span><span class='va'>total_gdp</span>, na.rm<span class='op'>=</span><span class='cn'>TRUE</span><span class='op'>)</span></span>
+<span></span>
+<span><span class='va'>total_gdp</span> <span class='op'>|&gt;</span></span>
+<span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>LOCATION</span>, <span class='op'>-</span><span class='va'>total_gdp</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>total_gdp</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_col</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='va'>average_gdp</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span></span>
+<span>    x<span class='op'>=</span><span class='st'>"Country"</span>,</span>
+<span>    y<span class='op'>=</span><span class='st'>"Total GDP"</span>,</span>
+<span>    title<span class='op'>=</span><span class='st'>"Total GDP by Country"</span></span>
+<span>  <span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-12-1.png" width="624" /></p>
+</div>
+<p>#same 10 countries total gdp</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>top_10_emissions_gdp</span> <span class='op'>&lt;-</span> <span class='va'>total_gdp</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>LOCATION</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"USA"</span>, <span class='st'>"CHN"</span>, <span class='st'>"RUS"</span>, <span class='st'>"GBR"</span>, <span class='st'>"JPN"</span>, <span class='st'>"DEU"</span>, <span class='st'>"IND"</span>, <span class='st'>"FRA"</span>, <span class='st'>"CAN"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span><span class='va'>top_10_emissions_gdp</span></span></code></pre>
+</div>
+<pre><code># A tibble: 9 × 2
+  LOCATION  total_gdp
+  &lt;chr&gt;         &lt;dbl&gt;
+1 USA      511761237.
+2 CHN      354961958.
+3 JPN      159344912.
+4 IND      137439100.
+5 DEU      116878843.
+6 FRA       82721195.
+7 GBR       81598726.
+8 RUS       65414323.
+9 CAN       48083815.</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>average_gdp_top_10_emissions_gdp</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>top_10_emissions_gdp</span><span class='op'>$</span><span class='va'>total_gdp</span><span class='op'>)</span></span>
+<span><span class='va'>average_gdp_top_10_emissions_gdp</span></span></code></pre>
+</div>
+<pre><code>[1] 173133790</code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>average_gdp_total</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>total_gdp</span><span class='op'>$</span><span class='va'>total_gdp</span><span class='op'>)</span></span>
+<span><span class='va'>average_gdp_total</span></span></code></pre>
+</div>
+<pre><code>[1] 76820294</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>top_10_emissions_gdp</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/stats/reorder.factor.html'>reorder</a></span><span class='op'>(</span><span class='va'>LOCATION</span>, <span class='op'>-</span><span class='va'>total_gdp</span><span class='op'>)</span>, y <span class='op'>=</span> <span class='va'>total_gdp</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_bar.html'>geom_bar</a></span><span class='op'>(</span>stat <span class='op'>=</span> <span class='st'>"identity"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='va'>average_gdp_total</span>, linetype <span class='op'>=</span> <span class='st'>"Average for All Countries"</span>, color<span class='op'>=</span><span class='st'>"indianred"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_abline.html'>geom_hline</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>yintercept <span class='op'>=</span> <span class='va'>average_gdp_top_10_emissions_gdp</span>, linetype <span class='op'>=</span> <span class='st'>"Average for Top 10 Countries"</span>, color<span class='op'>=</span><span class='st'>"dodgerblue"</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>x<span class='op'>=</span><span class='st'>"Country"</span>, y<span class='op'>=</span><span class='st'>"Total GDP"</span>, title<span class='op'>=</span><span class='st'>"Top 10 Total Emission Countries GDP by Country"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/scale_manual.html'>scale_linetype_manual</a></span><span class='op'>(</span>values<span class='op'>=</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"Average for All Countries"</span> <span class='op'>=</span> <span class='st'>"dashed"</span>, <span class='st'>"Average for Top 10 Countries"</span> <span class='op'>=</span> <span class='st'>"dotted"</span><span class='op'>)</span>, name<span class='op'>=</span><span class='st'>"Average Line"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/guides.html'>guides</a></span><span class='op'>(</span>color <span class='op'>=</span> <span class='cn'>FALSE</span><span class='op'>)</span> <span class='op'>+</span> <span class='co'>#Remove color legend</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/theme.html'>theme</a></span><span class='op'>(</span>axis.text.x <span class='op'>=</span> <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/element.html'>element_text</a></span><span class='op'>(</span>angle<span class='op'>=</span><span class='fl'>45</span>, hjust<span class='op'>=</span><span class='fl'>1</span>, size<span class='op'>=</span><span class='fl'>6</span><span class='op'>)</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-14-1.png" width="624" /></p>
+</div>
+<p>#1992-2014 total gdp and total emissions (solve USSR problem and data only available until 2014)</p>
+<p>#filter emissions, aggregate data, identify top 9</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>emissions_filtered</span> <span class='op'>&lt;-</span> <span class='va'>data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>Year</span> <span class='op'>&gt;=</span> <span class='fl'>1992</span>, <span class='va'>Year</span> <span class='op'>&lt;=</span> <span class='fl'>2014</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>total_emissions_1992_2014</span> <span class='op'>&lt;-</span> <span class='va'>emissions_filtered</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>Country</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>total_emissions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Total</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='fu'><a href='https://dplyr.tidyverse.org/reference/desc.html'>desc</a></span><span class='op'>(</span><span class='va'>total_emissions</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>top9_emitters</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>total_emissions_1992_2014</span>, <span class='fl'>9</span><span class='op'>)</span></span>
+<span><span class='va'>top9_emitters</span></span></code></pre>
+</div>
+<pre><code># A tibble: 9 × 2
+  Country                  total_emissions
+  &lt;chr&gt;                              &lt;int&gt;
+1 CHINA (MAINLAND)                35489190
+2 UNITED STATES OF AMERICA        33931362
+3 RUSSIAN FEDERATION              10466421
+4 INDIA                            7964623
+5 JAPAN                            7524624
+6 GERMANY                          5096108
+7 UNITED KINGDOM                   3249675
+8 CANADA                           3242871
+9 REPUBLIC OF KOREA                2890885</code></pre>
+</div>
+#filter and aggregate GDP
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>unique_countries_gdp</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/distinct.html'>distinct</a></span><span class='op'>(</span><span class='va'>LOCATION</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>LOCATION</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>gdp_filtered</span> <span class='op'>&lt;-</span> <span class='va'>df</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>TIME</span> <span class='op'>&gt;=</span> <span class='fl'>1992</span>, <span class='va'>TIME</span> <span class='op'>&lt;=</span> <span class='fl'>2014</span>, <span class='va'>LOCATION</span> <span class='op'><a href='https://rdrr.io/r/base/match.html'>%in%</a></span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"CHN"</span>, <span class='st'>"USA"</span>, <span class='st'>"RUS"</span>, <span class='st'>"IND"</span>, <span class='st'>"JPN"</span>, <span class='st'>"DEU"</span>, <span class='st'>"GBR"</span>, <span class='st'>"CAN"</span>, <span class='st'>"KOR"</span><span class='op'>)</span><span class='op'>)</span></span>
+<span></span>
+<span></span>
+<span><span class='va'>total_gdp_1992_2014</span> <span class='op'>&lt;-</span> <span class='va'>gdp_filtered</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>LOCATION</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>total_gdp <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>Value</span>, na.rm <span class='op'>=</span> <span class='cn'>TRUE</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='op'>-</span> <span class='va'>total_gdp</span><span class='op'>)</span></span></code></pre>
+</div>
+</div>
+<h1 id="merged-data">Merged Data</h1>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>emissions_gdp_data</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/base/data.frame.html'>data.frame</a></span><span class='op'>(</span></span>
+<span>  Country <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"China"</span>, <span class='st'>"USA"</span>, <span class='st'>"Russia"</span>, <span class='st'>"India"</span>, <span class='st'>"Japan"</span>, <span class='st'>"Germany"</span>, <span class='st'>"UK"</span>, <span class='st'>"Canada"</span>, <span class='st'>"Korea"</span><span class='op'>)</span>,</span>
+<span>  Total_Emissions <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>35489190</span>, <span class='fl'>33931362</span>, <span class='fl'>10466421</span>, <span class='fl'>7964623</span>, <span class='fl'>7524624</span>, <span class='fl'>5096108</span>, <span class='fl'>3249675</span>, <span class='fl'>3242871</span>, <span class='fl'>2890885</span><span class='op'>)</span>,</span>
+<span>  Total_GDP <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='fl'>161277918</span>, <span class='fl'>271880877</span>, <span class='fl'>41382019</span>, <span class='fl'>75717911</span>, <span class='fl'>88956166</span>, <span class='fl'>60368485</span>, <span class='fl'>42279981</span>, <span class='fl'>25127316</span>, <span class='fl'>25760099</span><span class='op'>)</span></span>
+<span><span class='op'>)</span></span>
+<span><span class='va'>emissions_gdp_data</span></span></code></pre>
+</div>
+<pre><code>  Country Total_Emissions Total_GDP
+1   China        35489190 161277918
+2     USA        33931362 271880877
+3  Russia        10466421  41382019
+4   India         7964623  75717911
+5   Japan         7524624  88956166
+6 Germany         5096108  60368485
+7      UK         3249675  42279981
+8  Canada         3242871  25127316
+9   Korea         2890885  25760099</code></pre>
+</div>
+<p>#linear regression analysis</p>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>model</span> <span class='op'>&lt;-</span> <span class='fu'><a href='https://rdrr.io/r/stats/lm.html'>lm</a></span><span class='op'>(</span><span class='va'>Total_GDP</span> <span class='op'>~</span> <span class='va'>Total_Emissions</span>, data <span class='op'>=</span> <span class='va'>emissions_gdp_data</span><span class='op'>)</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/base/summary.html'>summary</a></span><span class='op'>(</span><span class='va'>model</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>
+Call:
+lm(formula = Total_GDP ~ Total_Emissions, data = emissions_gdp_data)
+
+Residuals:
+      Min        1Q    Median        3Q       Max 
+-57044522 -12817595   4297010  12057047  62272522 
+
+Coefficients:
+                 Estimate Std. Error t value Pr(&gt;|t|)    
+(Intercept)     1.981e+07  1.759e+07   1.126 0.297210    
+Total_Emissions 5.594e+00  1.016e+00   5.505 0.000902 ***
+---
+Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+
+Residual standard error: 37400000 on 7 degrees of freedom
+Multiple R-squared:  0.8124,    Adjusted R-squared:  0.7856 
+F-statistic: 30.31 on 1 and 7 DF,  p-value: 0.0009017</code></pre>
+</div>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>emissions_gdp_data</span> <span class='op'>|&gt;</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/ggplot.html'>ggplot</a></span><span class='op'>(</span><span class='fu'><a href='https://ggplot2.tidyverse.org/reference/aes.html'>aes</a></span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>Total_Emissions</span>, y <span class='op'>=</span> <span class='va'>Total_GDP</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_point.html'>geom_point</a></span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/geom_smooth.html'>geom_smooth</a></span><span class='op'>(</span>method <span class='op'>=</span> <span class='st'>"lm"</span><span class='op'>)</span> <span class='op'>+</span></span>
+<span>  <span class='fu'><a href='https://ggplot2.tidyverse.org/reference/labs.html'>labs</a></span><span class='op'>(</span>title <span class='op'>=</span> <span class='st'>"Relationship between Total Emissions and Total GDP"</span>, x <span class='op'>=</span> <span class='st'>"Total Emissions in metric tons)"</span>, y <span class='op'>=</span> <span class='st'>"Total GDP (in USD)"</span><span class='op'>)</span></span></code></pre>
+</div>
+<p><img src="index_files/figure-html5/unnamed-chunk-20-1.png" width="624" /></p>
+</div>
+<p>The positive slope of the regression line indicates a positive correlation between Total Emissions and Total GDP for the top 9 countries by emissions. This confirms my assumption that countries producing greater volumes of emissions have a higher GDP growth than countries with lower emissions. The confidence interval - represented by the shaded line - appears to be narrow enough/confirm the indications of the regression line, although this must be confirmed with statistical reasoning, such as the p-value and R-squared value.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
