@@ -51,15 +51,13 @@ for(i in 1:length(json_data$resources$datahub$type)){
 library(tidyverse)
 library(dplyr)
 library(ggplot2)
-```
-```{r}
-unique_countries <- data |>
-  distinct(Country)
- 
+library(broom)
+library(modelsummary)
 ```
 
 ```{r}
-head(data, 10)
+unique_countries <- data |>
+  distinct(Country)
 ```
 
 SHOWCASE HOW DATA PRESENTED
@@ -75,7 +73,7 @@ total_emissions <- data |>
 ```
 
 
-#table with total emissions by country
+#visual representation of total emissions for each country across all years
 
 ```{r}
 average_emissions <- mean(total_emissions$total_emissions, na.rm=TRUE)
@@ -98,12 +96,11 @@ ggplot(aes(x = reorder(Country, -total_emissions), y = total_emissions)) +
 top10_emissions <- total_emissions |>
   arrange(-total_emissions) |>
   slice(c(1:10))
-        top10_emissions
+
+knitr::kable(top10_emissions)
         
 average_emissions_top10 <- mean(top10_emissions$total_emissions)
-average_emissions_top10
 average_emissions_total <- mean(total_emissions$total_emissions)
-average_emissions_total
 ```
 
 
@@ -125,34 +122,24 @@ The graph showcases the vast difference in emissions among the top 10 countries.
 
 Comparing the average emissions of these top 10 players to the global average can offer insight into the overall contribution of these 10 to global emissions as well. Using these two approaches, one may substantiate claims that despite being a small number of countries, top emitters are responsible for a disproportionate amount of global emissions - this being more true the closer a country is to the "highest emitter position".
 
-#emission difference
-
-
-NOTES: If available, I will compare the emissions data to GDP growth - specifically looking at top emitters.
-
-
 #GDP
 
 ```{r}
 df<-read.csv("DP_LIVE_16112023222414417.csv")
 
-```
-
-```{r}
 unique_location <- df |>
   distinct(LOCATION)
+
 ```
 
-#total GDP
+#total GDP by Country
 
 ```{r}
 total_gdp <- df |>
   group_by(LOCATION) |>
   summarise(total_gdp = sum(Value, na.rm = TRUE)) |>
   arrange(desc(total_gdp))
-
 ```
-
 
 #table with total GDP by country
 
@@ -175,13 +162,14 @@ ggplot(aes(x = reorder(LOCATION, -total_gdp), y = total_gdp)) +
 ```{r}
 top_10_emissions_gdp <- total_gdp |>
   filter(LOCATION %in% c("USA", "CHN", "RUS", "GBR", "JPN", "DEU", "IND", "FRA", "CAN"))
-top_10_emissions_gdp
+
+knitr::kable(top_10_emissions_gdp)
 
 average_gdp_top_10_emissions_gdp <- mean(top_10_emissions_gdp$total_gdp)
-average_gdp_top_10_emissions_gdp
 average_gdp_total <- mean(total_gdp$total_gdp)
-average_gdp_total
 ```
+
+#Visual Representation of #same 10 countries total GDP
 
 ```{r}
 top_10_emissions_gdp |>
@@ -195,9 +183,9 @@ top_10_emissions_gdp |>
   theme(axis.text.x = element_text(angle=45, hjust=1, size=6))
 ```
 
-#1992-2014 total gdp and total emissions (solve USSR problem and data only available until 2014)
+#1992-2014 total gdp and total emissions (solves USSR problem and data only available until 2014)
 
-#filter emissions, aggregate data, identify top 9
+#filter (years) emissions and GDP, aggregate data, identify top 9
 
 ```{r}
 emissions_filtered <- data |>
@@ -211,7 +199,8 @@ total_emissions_1992_2014 <- emissions_filtered |>
 
 
 top9_emitters <- head(total_emissions_1992_2014, 9)
-top9_emitters
+
+knitr::kable(top9_emitters)
 ```
 
 #filter and aggregate GDP
@@ -226,11 +215,11 @@ unique_countries_gdp <- df |>
 gdp_filtered <- df |>
   filter(TIME >= 1992, TIME <= 2014, LOCATION %in% c("CHN", "USA", "RUS", "IND", "JPN", "DEU", "GBR", "CAN", "KOR"))
 
-
 total_gdp_1992_2014 <- gdp_filtered |>
   group_by(LOCATION) |>
-  summarise(total_gdp = sum(Value, na.rm = TRUE)) |>
-  arrange(- total_gdp)
+  summarise(Total_GDP = sum(Value, na.rm = TRUE)) |>
+  arrange(- Total_GDP)
+knitr::kable(total_gdp_1992_2014)
 
 ```
 
@@ -242,8 +231,12 @@ emissions_gdp_data <- data.frame(
   Total_Emissions = c(35489190, 33931362, 10466421, 7964623, 7524624, 5096108, 3249675, 3242871, 2890885),
   Total_GDP = c(161277918, 271880877, 41382019, 75717911, 88956166, 60368485, 42279981, 25127316, 25760099)
 )
-emissions_gdp_data
+
+
+knitr::kable(emissions_gdp_data)
 ```
+
+Given the succinct variety in data presentation across the two data sets, for the sake of data integrity and consistency I have refrained from trying to merge the 2 data sets through code. The reason for doing so, is due to the "Country" and "LOCATION" variables not being consistent - not only in name, but taking into consideration the shift in borders (prime examples being the USSR -> Russia and Yugoslavia -> Balkan Countries) it would be unwise to temper with the data and assume the same principles were followed by the two research groups. As I will refer to in my reflection, having a longer list of countries to compare GDP growth with carbon emissions would be helpful in establishing a global consensus and improve statistical significance, the limitation elaborated on above led to my decision of focusing on top emitters and leading economies - valuing quality over quantity of data. An attempt in resolving the problem - not including each country - will be introduced later on, after the current approach has been completed.
 
 #linear regression analysis
 
@@ -251,6 +244,12 @@ emissions_gdp_data
 model <- lm(Total_GDP ~ Total_Emissions, data = emissions_gdp_data)
 summary(model)
 ```
+```{r}
+modelsummary::modelsummary(model, stars = c("*" = 0.1, "**" = 0.05, "***" = 0.01), title = "Regression Model Summary")
+```
+
+Based on the Regression Model Summary we can interpret the outputs in context of our research. The intercept - ~19.8 billion - is the expected value of GDP in $ (our dependent variable) when all independent variables are 0. The standard error - ~17.6 billion ~ indicates the variability of this estimate. The closeness of the two values indicates that there is a significant range in values - as can be confirmed by the visual representation below. The Total_emissions variable - 5.594 - indicates that for every unitary increases in Total Emissions (our independent variable) GDP increases by an average of ~5.6 units, with a standard error of ~1. This degree of certainty, along with the three astersks marking representing a high statistical significance (p<0.1), allows us to conclude that an increase in carbon emissions has a significant positive effect on GDP growth. The number of observations, 9, refers to the countries we chose - based on top emitters (from 1992 to 2014). Our R-squared value, 0.812, suggests that ~81.2% of the change in GDP can be allocated to the model. Meanwhile, the adjusted R-squared value (0.786) - adjusting for number of predictors, and arguably a more precise measurement - indicates that ~78.6% of the change in GDP can be explained by the model.The Root Mean Square Error predicts that observed GDP values are off the model's predictions by an average of ~ 33 million (USD).
+
 
 ```{r}
 emissions_gdp_data |>
@@ -260,14 +259,65 @@ emissions_gdp_data |>
   labs(title = "Relationship between Total Emissions and Total GDP", x = "Total Emissions in metric tons)", y = "Total GDP (in USD)")
 ```
 
-The positive slope of the regression line indicates a positive correlation between Total Emissions and Total GDP for the top 9 countries by emissions. This confirms my assumption that countries producing greater volumes of emissions have a higher GDP growth than countries with lower emissions. The confidence interval - represented by the shaded line - appears to be narrow enough/confirm the indications of the regression line, although this must be confirmed with statistical reasoning, such as the p-value and R-squared value.
+The positive slope of the regression line indicates a positive correlation between Total Emissions and Total GDP for the top 9 countries by emissions - in accordance with our observations from our modelsummary. This confirms my assumption that countries producing greater volumes of emissions have a higher GDP growth than countries with lower emissions. The confidence interval - represented by the shaded line - appears to be narrow enough/confirm the indications of the regression line, although this must be confirmed with statistical reasoning, such as the p-value and R-squared value, which we have done above.
+
+Whilst these regression tools confirm my hypothesis, I addressed earlier that focusing on the top emitters/GDP countries limits the number of observations to base our analysis on. For reasons discussed earlier, merging the entire data sets would lead to discrepancies, however, as an alternative I decided to observe the rate of change within total GDP and total emissions, based on ranking.
+
+To approach this, I ranked the total emissions/total GDP and subtracted each value from its predecessor: value of n - value of n+1, where n is the rank of a country, and the value is either total GDP or total emissions. Visualizing this difference, shows us the rate of decline in total emissions/GDP based on the size of emissions/GDP. If my hypothesis is right, our results from above hold true, total GDP/emissions decline faster among those countries with higher GDP/emissions than for those with lower values. We will stick to the total from the years 1992-2014 to allow for a later comparison.
+
+#ranking GDP/Emissions and assigning rank
+
+```{r}
+emissions_ranked <- data |>
+  group_by(Country) |>
+  summarize(total_emissions_ranking = sum(Total)) |>
+  arrange(desc(total_emissions_ranking)) |>
+  mutate(Emissions_Rank = row_number())
+
+#limitation: USSR/Russia etc.
+
+gdp_ranked <- df |>
+  group_by(LOCATION) |>
+  summarize(total_gdp_ranking = sum(Value)) |>
+  arrange(desc(total_gdp_ranking)) |>
+  mutate(GDP_Rank = row_number())
+
+#limitation: OECD etc..
+```
+
+#calculating rate of change across ranks
+
+```{r}
+emissions_change <- emissions_ranked |>
+  mutate(Change_in_Emissions = abs(total_emissions_ranking - lag(total_emissions_ranking)))
+emissions_change
+
+gdp_change <- gdp_ranked |>
+  mutate(Change_in_GDP = abs(total_gdp_ranking - lag(total_gdp_ranking)))
+gdp_change
+```
+
+#viualization of rate of change
+
+```{r}
+emissions_change |>
+  ggplot(aes(x=Emissions_Rank, y = Change_in_Emissions)) +
+  geom_line() +
+  labs(title = "Rate of Change in Emissions by Rank", x = "Emissions Rank", y = "Change in Emissions")
+
+gdp_change |>
+  ggplot(aes(x=GDP_Rank, y = Change_in_GDP)) +
+  geom_line() +
+  labs(title = "Rate of Change in GDP by Rank", x = "GDP Rank", y = "Change in GDP")
+```
 
 
+Plotting the Rate of Change in Emissions by Rank and Rate of Change in GDP by Rank confirms my assumption - the rate of change being more higher/more significant at higher ranks - between countries with higher GDP/emissions - and declining as total emissions/GDP declines. The decline in rate of change is very extreme for both measures - although GDP sees a noticeable fluctuation in earlier ranks. Nevertheless, the trend is clear - the greatest rate of change exists for the highest ranking emitters/those with the highest GDP values. This trend again indicates that a select few countries are responsible for the large part of emissions, and represent a majority of world GDP.
+
+I used the absolute value for difference for the sake of visualization - having a positive values reaching 0 appears more intuitive than a graph beginning in the extreme negative and reaching 0. Additionally, I would have liked to plot the two rate of change against each other, but having a different number of observations, 67 and 256, does not allow for this kind of (effective) analysis.
 
 
-
-
-
+Conclusion
 
 
 
