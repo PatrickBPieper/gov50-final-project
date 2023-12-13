@@ -277,6 +277,7 @@ To approach this, I ranked the total emissions/total GDP by country and subtract
 
 #ranking GDP/Emissions and assigning rank
 
+note: limitation: USSR/Russia etc.and #limitation: OECD etc..
 ```{r}
 emissions_ranked <- data |>
   group_by(Country) |>
@@ -284,15 +285,12 @@ emissions_ranked <- data |>
   arrange(desc(total_emissions_ranking)) |>
   mutate(Emissions_Rank = row_number())
 
-#limitation: USSR/Russia etc.
-
 gdp_ranked <- df |>
-  group_by(LOCATION) |>ll
+  group_by(LOCATION) |>
   summarize(total_gdp_ranking = sum(Value)) |>
   arrange(desc(total_gdp_ranking)) |>
   mutate(GDP_Rank = row_number())
 
-#limitation: OECD etc..
 ```
 
 #calculating rate of change across ranks
