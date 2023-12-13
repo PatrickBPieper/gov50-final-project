@@ -79,10 +79,11 @@ ggplot(aes(x = reorder(Country, -total_emissions), y = total_emissions)) +
   labs(
     x="Country",
     y="Total Emissions",
-    title="Total Emissions by Country"
-  )
+    title="Total Emissions by Country") +
+  theme(axis.text.x = element_blank())
 ```
 
+Note that a stylistic preference has been added to omit the country names, due to the lack of possibility for comprehensive reading.
 
 #filtered data and averages - focusing on top 10 emitters
 
@@ -150,8 +151,8 @@ ggplot(aes(x = reorder(LOCATION, -total_gdp), y = total_gdp)) +
   labs(
     x="Country",
     y="Total GDP",
-    title="Total GDP by Country"
-  )
+    title="Total GDP by Country") +
+  theme(axis.text.x = element_text(angle=90, hjust=1, size=6))
 ```
 
 
